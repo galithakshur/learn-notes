@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn Notes</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .staff {
+        position: relative;
+      }
+      .line {
+        position: absolute;
+        background-color: black;
+        height: 1px;
+        width: 100%;
+      }
+      .line-1 {
+        top: 10px;
+      }
+      .line-2 {
+        top: 30px;
+      }
+      .line-3 {
+        top: 50px;
+      }
+      .line-4 {
+        top: 70px;
+      }
+      .line-5 {
+        top: 90px;
+      }
+      .full-note {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        left: 90px;
+        margin-top: -10px;
+      }
+      .note {
+        height: 20px;
+        width: 30px;
+        background-color: rgb(13, 13, 13);
+        transform: rotate(-18deg);
+        border-radius: 50%;
+      }
+      .tone {
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -11px;
+        margin-right: 3px;
+      }
+      .line-through {
+        font-weight: bold;
+        font-size: 30px;
+        margin-left: -34px;
+        margin-top: -24px;
+      }
+      /*
+            .note::after {
+              content: "#";
+              color: red;
+            }
+            */
+      .treble-clef {
+        width: 92px;
+        position: absolute;
+        top: -24px;
+        left: -15px;
+      }
+      .bass-clef {
+        width: 109px;
+        position: absolute;
+        top: -31px;
+        left: -16px;
+      }
+
+      .piano {
+        position: relative;
+      }
+      .blacks {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        display: flex;
+      }
+      .whites {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .key {
+        height: 100px;
+        width: 40px;
+        border: 1px solid black;
+        padding: 1px;
+      }
+      .blacks > .key {
+        background-color: black;
+        width: 20px;
+        height: 60px;
+        margin: 0 10px;
+      }
+      .whites > .key:hover {
+        background-color: #eee;
+      }
+      .blacks > .key:hover {
+        background-color: #666;
+      }
+      .piano > .blacks > .key.correct-answer,
+      .piano > .whites > .key.correct-answer {
+        background-color: rgb(13, 190, 13);
+      }
+      .piano > .blacks > .key.wrong-answer,
+      .piano > .whites > .key.wrong-answer {
+        background-color: rgb(248, 116, 116);
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <div class="staff">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      <div class="line line-4"></div>
+      <div class="line line-5"></div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input id="answer" oninput="validate()" />
+    <div id="result">Result:</div>
+    <div id="score">Score:</div>
+    <select id="selectClef" onchange="getClef()">
+      <option value="" selected disabled hidden>Select Clef</option>
+      <option value="0" selected>Treble Clef</option>
+      <option value="1">Bass Clef</option>
+    </select>
+    <br />
+    <div id="app">
+      <div
+        class="piano"
+        onmouseup="removeClass(event)"
+        onmousedown="validate(event)"
+      >
+        <div class="whites">
+          <div class="key" data-key="C"></div>
+          <div class="key" data-key="D"></div>
+          <div class="key" data-key="E"></div>
+          <div class="key" data-key="F"></div>
+          <div class="key" data-key="G"></div>
+          <div class="key" data-key="A"></div>
+          <div class="key" data-key="B"></div>
+          <div class="key" data-key="C"></div>
+          <div class="key" data-key="D"></div>
+          <div class="key" data-key="E"></div>
+        </div>
+        <div class="blacks">
+          <div class="key" data-key="C#"></div>
+          <div class="key" data-key="D#"></div>
+          <div class="key" style="visibility:hidden"></div>
+          <div class="key" data-key="F#"></div>
+          <div class="key" data-key="G#"></div>
+          <div class="key" data-key="A#"></div>
+          <div class="key" style="visibility:hidden"></div>
+          <div class="key" data-key="C#"></div>
+          <div class="key" data-key="D#"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="index.js">
+      /*
+      onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    onclick="validate(event)"
+    */
+  </script>
+</html>
